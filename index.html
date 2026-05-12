@@ -220,6 +220,35 @@
   }
   .contact-card .value:last-child { margin-bottom: 0; }
 
+  /* Changelog */
+  .changelog {
+    background: #fafaf8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+  .changelog h3 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+  }
+  .changelog ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+  }
+  .changelog li { margin-bottom: 6px; }
+  .changelog .version {
+    font-weight: 600;
+    color: var(--sage-dark);
+  }
+
   /* Footer */
   footer {
     text-align: center;
@@ -251,7 +280,7 @@
   <div class="hero-icon">🌿</div>
   <div class="app-name">Herbify: PH Herbal &amp; Wellness Guide</div>
   <h1>Privacy Policy</h1>
-  <div class="meta">Last updated: May 11, 2026 · Version 2.0</div>
+  <div class="meta">Last updated: May 12, 2026 · Version 2.1</div>
 </header>
 
 <div class="container">
@@ -299,24 +328,25 @@
       <li><strong>Community posts (testimonies)</strong> — herbal experiences, comments, ratings, and likes you create</li>
       <li><strong>Reports &amp; helpfulness votes</strong> — feedback you submit on community content, used for moderation</li>
       <li><strong>Saved herbs</strong> — herbs you bookmark in the app</li>
-      <li><strong>Selected symptoms</strong> (when using the Symptom Checker) — processed locally on your device, not transmitted or stored on our servers</li>
+      <li><strong>Wellness journal entries</strong> (optional) — when you choose to log a daily entry, we store the date, the symptoms you selected from our list, and any free-text notes you add. These entries are private to your account and visible only to you. They are never shared with other users or third parties.</li>
+      <li><strong>Symptom Checker selections</strong> — when you use the Symptom Checker feature to look up herbal options, your symptom selections for that lookup are processed only on your device and are not stored on our servers. (This is separate from Wellness journal entries above, which you explicitly save.)</li>
     </ul>
 
     <h3>2.2 Information collected automatically</h3>
     <ul>
       <li><strong>Unique user ID</strong>, sign-up date, last sign-in date — for account management</li>
       <li><strong>Authentication tokens</strong> — short-lived session tokens to keep you signed in (managed by Supabase)</li>
-      <li><strong>Anonymous crash reports</strong> — collected via Expo's built-in error reporting. These contain device model, OS version, and technical stack traces only. They do <strong>NOT</strong> contain your email, name, location, or any post content.</li>
+      <li><strong>Operational server logs</strong> — our database provider (Supabase) automatically records standard request metadata (IP address, timestamp, request type) for security and abuse prevention. These logs are retained for up to 7 days and are not used for analytics, profiling, or advertising.</li>
     </ul>
 
     <h3>2.3 Information we do NOT collect</h3>
     <ul>
       <li>We do not collect your real name, phone number, address, date of birth, or government IDs.</li>
-      <li>We do not track your location (no GPS, no IP-based location).</li>
+      <li>We do not track your location (no GPS, no IP-based location features).</li>
       <li>We do not access your contacts, calendar, photos, camera, or microphone.</li>
       <li>We do not use advertising trackers, third-party analytics SDKs (Google Analytics, Firebase, Facebook, etc.), or social media pixels.</li>
       <li>We do not collect biometric data or government-issued identification numbers.</li>
-      <li>We do not store your symptom selections on our servers — they are processed only on your device.</li>
+      <li>We do not collect crash reports, telemetry, or behavioral analytics from the app at runtime.</li>
     </ul>
   </section>
 
@@ -339,13 +369,18 @@
           <td>Consent</td>
         </tr>
         <tr>
+          <td>Personal wellness journaling</td>
+          <td>Wellness journal entries (date, symptoms, notes)</td>
+          <td>Consent</td>
+        </tr>
+        <tr>
           <td>Community moderation</td>
           <td>Reports, helpfulness votes, post content</td>
           <td>Legitimate interest (platform safety)</td>
         </tr>
         <tr>
-          <td>App stability &amp; bug fixes</td>
-          <td>Anonymous crash reports</td>
+          <td>Security &amp; abuse prevention</td>
+          <td>Operational server logs (IP, timestamps)</td>
           <td>Legitimate interest</td>
         </tr>
         <tr>
@@ -383,7 +418,6 @@
     <ul>
       <li><strong>With Supabase</strong> — to store and retrieve your account and content</li>
       <li><strong>With Brevo</strong> — to send transactional emails (password resets, account confirmation)</li>
-      <li><strong>With Expo</strong> — anonymous crash reports only (no personal data)</li>
       <li><strong>With other Herbify users</strong> — anything you post in the Community section is publicly visible</li>
       <li><strong>When legally required</strong> — in response to valid court orders, subpoenas, or lawful government requests under Philippine law</li>
       <li><strong>To protect safety</strong> — when necessary to protect life, prevent fraud, or prevent serious harm</li>
@@ -396,6 +430,7 @@
     <div class="callout callout-warning">
       <strong>Please don't share sensitive info:</strong> Avoid posting full names, addresses, phone numbers, or specific medical diagnoses in community posts. Once posted, your content is visible to all Herbify users.
     </div>
+    <p>Your <strong>Wellness journal entries are NOT part of the Community section</strong> — they are private to your account and are never displayed publicly.</p>
     <p>You can delete your own posts at any time directly within the app. Posts that violate our community rules may be hidden or removed by our moderation system.</p>
   </section>
 
@@ -417,16 +452,22 @@
     <p>Email us at <a href="mailto:herbify.ph.app@gmail.com">herbify.ph.app@gmail.com</a>. We respond to verified requests within 30 days, in line with NPC guidelines. You can also delete your own community posts and comments directly within the app at any time.</p>
 
     <h3>Account deletion</h3>
-    <p>To permanently delete your account and all associated data, email us at <a href="mailto:herbify.ph.app@gmail.com">herbify.ph.app@gmail.com</a> from the email address registered to your account, with the subject line <strong>"Account Deletion Request"</strong>. We will delete your account and personal data within 30 days, except where retention is legally required.</p>
+    <p>You have two ways to permanently delete your account and all associated data:</p>
+    <ul>
+      <li><strong>Option 1 — In-app (immediate):</strong> Open Herbify, go to <strong>Profile → Delete Account</strong>, type <strong>DELETE</strong> to confirm, and tap the delete button. Your account and associated data (testimonies, comments, wellness journal entries, saved herbs, helpfulness votes, post reports) are removed from our active database immediately. Backups are purged within 90 days.</li>
+      <li><strong>Option 2 — Email request:</strong> Email us at <a href="mailto:herbify.ph.app@gmail.com">herbify.ph.app@gmail.com</a> from your registered email address with the subject line <strong>"Account Deletion Request"</strong>. We will process the deletion within 30 days.</li>
+    </ul>
+    <p>Both methods remove the same data. The in-app option is faster and is confirmed by the app the moment you complete it.</p>
   </section>
 
   <section id="retention">
     <h2>8. Data Retention</h2>
     <ul>
-      <li><strong>Account data (email, hashed password)</strong> — kept while your account is active. Deleted within 30 days of an account deletion request.</li>
+      <li><strong>Account data (email, hashed password)</strong> — kept while your account is active. Deleted immediately upon in-app account deletion, or within 30 days of an emailed deletion request.</li>
       <li><strong>Community posts (testimonies, comments)</strong> — kept until you delete them or your account. Hidden posts (due to moderation) are retained for up to 90 days for appeal review, then deleted.</li>
+      <li><strong>Wellness journal entries</strong> — kept until you delete them individually or delete your account.</li>
       <li><strong>Reports &amp; helpfulness votes</strong> — kept for 1 year, then anonymized.</li>
-      <li><strong>Anonymous crash reports</strong> — retained by Expo for up to 90 days per their retention policy, then deleted.</li>
+      <li><strong>Operational server logs</strong> — retained by Supabase for up to 7 days for security and abuse prevention, then deleted.</li>
       <li><strong>Backups</strong> — purged within 90 days after account deletion.</li>
     </ul>
   </section>
@@ -460,7 +501,7 @@
       <strong>⚠️ In an emergency, call 911 immediately</strong> or go to the nearest hospital. Herbify is not designed for emergency medical situations. For mental health crises in the Philippines, the NCMH Crisis Hotline is available 24/7 at <strong>1553</strong> (landline) or <strong>1800-1888-1553</strong> (toll-free mobile).
     </div>
     <p>Information on Philippine common medicines is referenced from the <strong>Philippine National Formulary (8th Edition)</strong> published by the Department of Health, in compliance with Administrative Order 2015-0053. Herbify does not sell, dispense, or recommend specific products. All decisions about medication use must be made with a licensed doctor or pharmacist.</p>
-    <p>Any health-related information you choose to share in your community posts is voluntarily disclosed by you and becomes public. We treat your community posts as user-generated content, not as confidential health records.</p>
+    <p>Any health-related information you choose to share in your community posts is voluntarily disclosed by you and becomes public. We treat your community posts as user-generated content, not as confidential health records. Your private Wellness journal entries are stored securely and are not made public.</p>
     <div class="callout callout-warning">
       <strong>Always consult a qualified healthcare professional</strong> before using any herbal remedy — especially if you are pregnant, breastfeeding, taking medication, have a medical condition, or are giving herbs to children or the elderly.
     </div>
@@ -476,8 +517,8 @@
       <tbody>
         <tr>
           <td><strong>Supabase</strong><br><a href="https://supabase.com/privacy" target="_blank" rel="noopener">privacy policy</a></td>
-          <td>Database hosting, authentication</td>
-          <td>Email, hashed password, post content, reports, votes</td>
+          <td>Database hosting, authentication, operational logs</td>
+          <td>Email, hashed password, post content, wellness journal entries, reports, votes, request IP &amp; timestamps (security logs)</td>
           <td>Singapore (AWS ap-southeast-1)</td>
         </tr>
         <tr>
@@ -487,12 +528,6 @@
           <td>European Union</td>
         </tr>
         <tr>
-          <td><strong>Expo / EAS</strong><br><a href="https://expo.dev/privacy" target="_blank" rel="noopener">privacy policy</a></td>
-          <td>App build infrastructure, anonymous crash reporting</td>
-          <td>Anonymous device telemetry (no personal data)</td>
-          <td>United States</td>
-        </tr>
-        <tr>
           <td><strong>Google Play Services</strong><br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a></td>
           <td>App distribution &amp; install verification</td>
           <td>Whatever Google Play collects from your device (governed by Google's own privacy policy)</td>
@@ -500,13 +535,22 @@
         </tr>
       </tbody>
     </table>
-    <p>We do <strong>not</strong> use advertising networks, third-party analytics services beyond anonymous crash reporting, social media pixels, or any cross-app tracking technologies.</p>
+    <p>Herbify is built using <strong>Expo / EAS</strong> infrastructure, but the production app does not transmit any data to Expo at runtime — Expo's role ends at the build process. We do not enable Expo crash reporting, EAS Insights, or any other Expo telemetry features.</p>
+    <p>We do <strong>not</strong> use advertising networks, third-party analytics services, social media pixels, or any cross-app tracking technologies.</p>
   </section>
 
   <section id="changes">
     <h2>13. Changes to This Privacy Policy</h2>
     <p>We may update this policy from time to time. When we do, we will update the "Last updated" date at the top of this page and notify users of significant changes through an in-app message or email.</p>
     <p>Your continued use of Herbify after changes are posted constitutes acceptance of the updated policy.</p>
+
+    <div class="changelog">
+      <h3>Changelog</h3>
+      <ul>
+        <li><span class="version">v2.1 (May 12, 2026):</span> Clarified that Wellness journal entries (including selected symptoms and notes) are stored server-side and are private to the user. Removed mention of anonymous crash reporting, which is not enabled in the production app. Added the in-app account deletion option (Profile → Delete Account). Disclosed Supabase operational server logs. Removed Expo from the active sub-processor table (build-time only).</li>
+        <li><span class="version">v2.0 (May 11, 2026):</span> Initial DPA-compliant release.</li>
+      </ul>
+    </div>
   </section>
 
   <section id="contact">

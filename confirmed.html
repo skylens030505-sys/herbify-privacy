@@ -4,204 +4,185 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Email Confirmed — Herbify</title>
+<meta name="description" content="Your Herbify email has been confirmed. Open the app to log in.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="icon.png">
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #4a7c59;
+    --sage-dark: #355a40;
+    --sage-light: #e8f0eb;
+    --sage-border: #b8d4bf;
+    --text-primary: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --bg: #fdfdfb;
+    --border: #e5e5e5;
+    --success-bg: #f0fdf4;
+    --success-border: #86efac;
+    --success-text: #166534;
+  }
+
+  * { box-sizing: border-box; }
 
   html, body {
-    height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #2c3e2d;
-    background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
   }
 
   body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%);
     min-height: 100vh;
-  }
-
-  .card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 40px 32px;
-    max-width: 440px;
-    width: 100%;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
-    text-align: center;
-    animation: slideUp 0.5s ease-out;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .checkmark-circle {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
-    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(74, 124, 89, 0.3);
-    animation: pop 0.6s ease-out 0.2s both;
+    padding: 24px 16px;
   }
 
-  @keyframes pop {
-    0% { transform: scale(0); }
-    60% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+  .container {
+    width: 100%;
+    max-width: 440px;
   }
 
-  .checkmark {
-    color: white;
-    font-size: 44px;
+  /* Brand header */
+  .brand {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .brand-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    margin: 0 auto 8px;
+    display: block;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin: 0;
+  }
+  .brand-tagline {
+    font-size: 13px;
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+
+  /* Card */
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px 24px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    text-align: center;
+  }
+
+  .success-icon {
+    font-size: 64px;
     line-height: 1;
+    margin-bottom: 16px;
   }
 
   h1 {
-    color: #2d5016;
-    font-size: 26px;
-    margin-bottom: 12px;
-    font-weight: 600;
-  }
-
-  .subtitle {
-    color: #5a6b5a;
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-
-  .instruction-box {
-    background: #f0f5ee;
-    border-left: 4px solid #4a7c59;
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin-bottom: 24px;
-    text-align: left;
-  }
-
-  .instruction-box-title {
-    color: #2d5016;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .instruction-box-text {
-    color: #5a6b5a;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .steps {
-    list-style: none;
-    margin: 12px 0 0;
-    counter-reset: step;
-  }
-
-  .steps li {
-    color: #5a6b5a;
-    font-size: 14px;
-    line-height: 1.6;
-    padding-left: 28px;
-    position: relative;
-    margin-bottom: 6px;
-    counter-increment: step;
-  }
-
-  .steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    background: #4a7c59;
-    color: white;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-note {
-    font-size: 12px;
-    color: #8a9b8a;
-    line-height: 1.5;
-    margin-top: 18px;
-  }
-
-  .leaf-decor {
     font-size: 24px;
-    margin: 0 6px;
-    opacity: 0.6;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--success-text);
+    letter-spacing: -0.2px;
+  }
+  .subtitle {
+    color: var(--text-secondary);
+    font-size: 15px;
+    margin: 0 0 24px;
   }
 
-  .branding {
-    margin-top: 24px;
-    padding-top: 18px;
-    border-top: 1px solid #e0e8e0;
+  /* Next steps box */
+  .next-steps {
+    background: var(--sage-light);
+    border-left: 3px solid var(--sage);
+    padding: 16px 18px;
+    border-radius: 8px;
+    margin-top: 8px;
+    text-align: left;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .next-steps strong {
+    color: var(--sage-dark);
+  }
+  .next-steps ol {
+    margin: 8px 0 0;
+    padding-left: 20px;
+  }
+  .next-steps li {
+    margin-bottom: 6px;
+  }
+  .next-steps li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 12px;
-    color: #8a9b8a;
+  }
+  .footer a {
+    color: #fff;
+    text-decoration: underline;
   }
 
-  .branding a {
-    color: #4a7c59;
-    text-decoration: none;
-  }
-
-  /* Smaller screens */
-  @media (max-width: 380px) {
-    .card { padding: 32px 24px; }
+  /* Mobile tweaks */
+  @media (max-width: 480px) {
+    body { padding: 16px 12px; }
+    .card { padding: 28px 18px; }
     h1 { font-size: 22px; }
-    .checkmark-circle { width: 76px; height: 76px; }
-    .checkmark { font-size: 38px; }
+    .brand-logo { width: 56px; height: 56px; }
+    .success-icon { font-size: 56px; }
   }
 </style>
 </head>
 <body>
 
-<div class="card">
-  <div class="checkmark-circle">
-    <span class="checkmark">✓</span>
+<div class="container">
+
+  <div class="brand">
+    <img src="icon.png" alt="🌿" class="brand-logo">
+    <h2 class="brand-name">Herbify</h2>
+    <div class="brand-tagline">Your Health and Wellness Companion</div>
   </div>
 
-  <h1>Email Confirmed!</h1>
-  <p class="subtitle">
-    <span class="leaf-decor">🌿</span>
-    Salamat! Your Herbify account is ready.
-  </p>
+  <div class="card">
+    <div class="success-icon">✅</div>
+    <h1>Email Confirmed!</h1>
+    <p class="subtitle">Salamat, kapatid! 🌿 Your email has been verified and your Herbify account is ready.</p>
 
-  <div class="instruction-box">
-    <div class="instruction-box-title">📱 Next steps</div>
-    <ol class="steps">
-      <li>Open the <strong>Herbify</strong> app on your phone</li>
-      <li>Tap <strong>"I already have an account"</strong></li>
-      <li>Log in with your email and password</li>
-    </ol>
+    <div class="next-steps">
+      <strong>Next step:</strong>
+      <ol>
+        <li>Open the <strong>Herbify app</strong> on your phone.</li>
+        <li>Sign in with your email and password.</li>
+        <li>Start your herbal wellness journey! 🌿</li>
+      </ol>
+    </div>
+
+    <p style="font-size: 13px; color: var(--text-muted); margin: 20px 0 0;">
+      You can safely close this tab now.
+    </p>
   </div>
 
-  <p class="footer-note">
-    You can close this browser tab now. Welcome to the Herbify community!
-  </p>
-
-  <div class="branding">
-    Made with care in the Philippines<br>
-    <strong>Daison Information Technology Solutions</strong> · 
-    <a href="https://skylens030505-sys.github.io/herbify-privacy/">Privacy Policy</a>
+  <div class="footer">
+    Need help? Email <a href="mailto:herbify.apps@gmail.com">herbify.apps@gmail.com</a><br>
+    <span style="opacity: 0.7;">© 2026 Daison Information Technology Solutions</span>
   </div>
+
 </div>
 
 </body>

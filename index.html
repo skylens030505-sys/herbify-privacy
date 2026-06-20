@@ -289,7 +289,7 @@
   <img class="hero-icon" src="icon.png" alt="Herbify app icon" />
   <div class="app-name">Herbify: PH Herbal &amp; Wellness Guide</div>
   <h1>Privacy Policy</h1>
-  <div class="meta">Last updated: May 27, 2026 · Version 2.3</div>
+  <div class="meta">Last updated: June 20, 2026 · Version 2.4</div>
 </header>
 
 <div class="container">
@@ -340,6 +340,7 @@
       <li><strong>Saved herbs</strong> — herbs you bookmark in the app</li>
       <li><strong>Wellness journal entries</strong> (optional) — when you choose to log a daily entry, we store the date, the symptoms you selected from our list, and any free-text notes you add. These entries are private to your account and visible only to you. They are never shared with other users or third parties.</li>
       <li><strong>Symptom Checker selections</strong> — when you use the Symptom Checker feature to look up herbal options, your symptom selections for that lookup are processed only on your device and are not stored on our servers. (This is separate from Wellness journal entries above, which you explicitly save.)</li>
+      <li><strong>Subscription &amp; purchase data</strong> (optional) — if you subscribe to Herbify Pro, we receive your subscription status (active or expired) and purchase identifiers from RevenueCat and Google Play Billing. We never receive your card number, bank details, or billing address — all payment data is handled by Google Play under its own privacy policy.</li>
     </ul>
 
     <h3>2.2 Information collected automatically</h3>
@@ -356,6 +357,7 @@
       <li>We do not access your contacts, calendar, photos, camera, or microphone.</li>
       <li>We do not use advertising trackers, third-party analytics SDKs (Google Analytics, Firebase, Facebook, etc.), or social media pixels.</li>
       <li>We do not collect biometric data or government-issued identification numbers.</li>
+      <li>We do not collect or store your payment card or bank details — Google Play processes all subscription payments.</li>
       <li>We do not collect crash reports, telemetry, or behavioral analytics from the app at runtime.</li>
     </ul>
   </section>
@@ -392,6 +394,11 @@
           <td>In-app notifications about your content</td>
           <td>User ID, post content references</td>
           <td>Legitimate interest (keeping you informed about your own content)</td>
+        </tr>
+        <tr>
+          <td>Managing your Herbify Pro subscription</td>
+          <td>Subscription status, purchase identifiers, user ID</td>
+          <td>Contract performance</td>
         </tr>
         <tr>
           <td>Security &amp; abuse prevention</td>
@@ -433,6 +440,8 @@
     <ul>
       <li><strong>With Supabase</strong> — to store and retrieve your account and content</li>
       <li><strong>With Brevo</strong> — to send transactional emails (password resets, account confirmation)</li>
+      <li><strong>With RevenueCat</strong> — to verify and manage your Herbify Pro subscription status. RevenueCat receives your purchase information and your Herbify user ID, but never your payment card details.</li>
+      <li><strong>With Google Play Billing</strong> — to process subscription payments. Google handles your payment data directly under its own privacy policy; Herbify never sees or stores your card or bank details.</li>
       <li><strong>With other Herbify users</strong> — anything you post in the Community section is publicly visible</li>
       <li><strong>When legally required</strong> — in response to valid court orders, subpoenas, or lawful government requests under Philippine law</li>
       <li><strong>To protect safety</strong> — when necessary to protect life, prevent fraud, or prevent serious harm</li>
@@ -505,7 +514,7 @@
       <li>Password hashing with bcrypt (passwords are never stored in plain text)</li>
       <li>Row-level security policies that prevent users from accessing each other's private data (including in-app notifications, which are only readable by the account they belong to)</li>
       <li>Production credentials stored in encrypted environment variables, never in source code</li>
-      <li>No payment information is collected — Herbify is and always will be free</li>
+      <li>We never collect or store your payment card or bank details. Herbify's core is free; the optional Herbify Pro subscription is billed and processed entirely by Google Play (see Sections 5 and 12).</li>
     </ul>
     <p>However, no method of internet transmission or electronic storage is 100% secure. We cannot guarantee absolute security. If we ever discover a personal data breach affecting your information, we will notify you and the National Privacy Commission within 72 hours, as required by NPC Circular 16-03 on personal data breach management.</p>
   </section>
@@ -545,6 +554,18 @@
           <td>European Union</td>
         </tr>
         <tr>
+          <td><strong>RevenueCat</strong><br><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">privacy policy</a></td>
+          <td>Subscription management &amp; entitlement verification for Herbify Pro</td>
+          <td>Purchase/subscription status, purchase identifiers, your Herbify user ID (no payment card data)</td>
+          <td>United States</td>
+        </tr>
+        <tr>
+          <td><strong>Google Play Billing</strong><br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a></td>
+          <td>Processing subscription payments</td>
+          <td>Payment is handled by Google Play; Herbify does not receive your card or bank details</td>
+          <td>Global</td>
+        </tr>
+        <tr>
           <td><strong>Google Play Services</strong><br><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">privacy policy</a></td>
           <td>App distribution &amp; install verification</td>
           <td>Whatever Google Play collects from your device (governed by Google's own privacy policy)</td>
@@ -564,6 +585,7 @@
     <div class="changelog">
       <h3>Changelog</h3>
       <ul>
+        <li><span class="version">v2.4 (June 20, 2026):</span> Disclosed the optional Herbify Pro subscription. Added subscription/purchase data to Sections 2 and 3, added RevenueCat and Google Play Billing to the sharing list (Section 5) and the sub-processor table (Section 12), and corrected the Section 10 statement about payment information. No change to how journal, community, or account data is handled.</li>
         <li><span class="version">v2.3 (May 27, 2026):</span> Updated the contact email throughout the policy to the actively monitored address (herbify.apps@gmail.com). No changes to data practices, sub-processors, or user rights.</li>
         <li><span class="version">v2.2 (May 26, 2026):</span> Disclosed the new in-app notifications feature. Notifications are stored in Supabase, visible only to the user, never sent via email or push, and deleted on account deletion. Added a corresponding row to the legal-basis table (Section 3), a private-content clarification (Sections 5 and 6), an explicit mention in the account-deletion list (Section 7), and a retention period (Section 8). No changes to existing data collection, sharing, or external transfer practices.</li>
         <li><span class="version">v2.1 (May 12, 2026):</span> Clarified that Wellness journal entries (including selected symptoms and notes) are stored server-side and are private to the user. Removed mention of anonymous crash reporting, which is not enabled in the production app. Added the in-app account deletion option (Profile → Delete Account). Disclosed Supabase operational server logs. Removed Expo from the active sub-processor table (build-time only).</li>
